@@ -3,11 +3,14 @@ import { Head } from '@inertiajs/vue3';
 import Header from './Header.vue';
 import Footer from './Footer.vue';
 import PageLoader from '../Common/PageLoader.vue';
+import { useMagicCursor } from '../../composables/useMagicCursor';
 
 defineProps({
     title: { type: String, default: '' },
     description: { type: String, default: 'Development Beyond helps practitioners, families, and organisations track progress, make informed decisions, and understand how learning can be applied beyond the instructional session.' },
 });
+
+useMagicCursor();
 </script>
 
 <template>
