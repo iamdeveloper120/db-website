@@ -1,58 +1,98 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Development Beyond — Website
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Marketing website for **Development Beyond Ltd**, built with Laravel 13 + Inertia.js + Vue 3 (SSR) + Tailwind CSS v3.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tech Stack
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+| Layer | Technology |
+|---|---|
+| Backend | Laravel 13, PHP 8.3+ |
+| Frontend | Vue 3 (Composition API), Inertia.js v2 |
+| Rendering | Server-Side Rendering (SSR) via Node.js |
+| Styling | Tailwind CSS v3, PostCSS, custom CSS vars |
+| Build | Vite 8 + laravel-vite-plugin |
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## Prerequisites
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- PHP 8.3+
+- Composer
+- Node.js 20+ and npm
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
-
-## Agentic Development
-
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## Setup
 
 ```bash
-composer require laravel/boost --dev
+# 1. Clone the repo
+git clone git@github.com:iamdeveloper120/db-website.git
+cd db-website
 
-php artisan boost:install
+# 2. Install dependencies
+composer install
+npm install
+
+# 3. Set up environment
+cp .env.example .env
+php artisan key:generate
+
+# 4. Run database migrations
+php artisan migrate
+
+# 5. Build frontend assets
+npm run build
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+---
 
-## Contributing
+## Running Locally
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+# Terminal 1 — PHP dev server
+php artisan serve --port=8000
 
-## Code of Conduct
+# Terminal 2 — SSR Node server
+node bootstrap/ssr/ssr.js
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Visit `http://localhost:8000`.
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Sharing Publicly (ngrok)
 
-## License
+```bash
+# Terminal 1
+php artisan serve --port=8000
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Terminal 2
+node bootstrap/ssr/ssr.js
+
+# Terminal 3
+ngrok http 8000
+```
+
+> **Do not run `npm run dev` when sharing externally.** It creates `public/hot` and rewrites all asset URLs to `http://localhost:5173/...` which are unreachable from external connections. Always use `npm run build` first.
+
+---
+
+## Styling
+
+**Fonts** — `Manrope` (body) and `Sora` (headings) loaded via Google Fonts.
+
+**Brand colours:**
+
+| Token | Hex |
+|---|---|
+| `primary` | `#243E5C` |
+| `primary-light` | `#385A7D` |
+| `accent` | `#C7F1DE` |
+| `accent-light` | `#DDF7EB` |
+| `surface` | `#E8EEF3` |
+| `text-dark` | `#1E2938` |
+| `muted` | `#7D8FA3` |
+
+**Scroll animations:** add `class="fade-in-up"` to any element — `useScrollReveal()` handles the rest. Stagger with `style="animation-delay: 0.1s"`.
