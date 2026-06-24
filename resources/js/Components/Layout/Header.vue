@@ -5,6 +5,7 @@ import { Link } from '@inertiajs/vue3';
 const mobileOpen = ref(false);
 const scrolled = ref(false);
 const mobileExpanded = ref(null);
+const openDropdown = ref(null);
 
 const navItems = [
     {
@@ -103,37 +104,39 @@ const toggleMobileDropdown = (label) => {
                 <div
                     v-for="item in navItems"
                     :key="item.label"
-                    class="relative group"
+                    class="relative"
+                    @mouseleave="openDropdown = null"
                 >
-                    <!-- Top-level link -->
+                    <!-- Top-level link — dropdown opens ONLY on hover of this element -->
                     <Link
                         :href="item.href"
                         class="flex items-center gap-1 text-sm font-medium px-3 py-4 transition-all duration-200"
                         :class="scrolled ? 'text-text-dark hover:text-primary' : 'text-white hover:text-accent'"
+                        @mouseenter="openDropdown = item.children ? item.label : null"
                     >
                         {{ item.label }}
                         <i
                             v-if="item.children"
-                            class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300 group-hover:rotate-180"
+                            class="fa-solid fa-chevron-down text-[10px] transition-transform duration-300"
+                            :class="openDropdown === item.label ? 'rotate-180' : ''"
                         />
                     </Link>
 
-                    <!-- Dropdown panel — pt-2 creates a mouse-bridge so hover doesn't break -->
+                    <!-- Dropdown panel -->
                     <div
                         v-if="item.children"
                         class="absolute top-full left-0 pt-2 z-50"
                     >
                         <ul
-                            class="w-[235px] rounded-xl bg-accent shadow-lg py-1.5
-                                   opacity-0 pointer-events-none origin-top scale-y-[0.8]
-                                   transition-all duration-300 ease-in-out
-                                   group-hover:opacity-100 group-hover:pointer-events-auto group-hover:scale-y-100"
+                            class="w-[235px] rounded-xl bg-accent shadow-lg py-1.5 origin-top transition-all duration-300 ease-in-out"
+                            :class="openDropdown === item.label
+                                ? 'opacity-100 pointer-events-auto scale-y-100'
+                                : 'opacity-0 pointer-events-none scale-y-[0.8]'"
                         >
                             <li v-for="child in item.children" :key="child.href">
                                 <Link
                                     :href="child.href"
-                                    class="block px-5 py-2 text-sm font-medium text-primary
-                                           transition-all duration-200 hover:pl-[23px]"
+                                    class="block px-5 py-2 text-sm font-medium text-primary transition-all duration-200 hover:pl-[23px]"
                                 >
                                     {{ child.label }}
                                 </Link>
