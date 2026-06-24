@@ -1,18 +1,25 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { Link, usePage } from '@inertiajs/vue3';
 
+const page = usePage();
 const mobileOpen = ref(false);
 const scrolled = ref(false);
 
-const navItems = [
-    { label: 'Home', href: '/', name: 'home' },
-    { label: 'About Us', href: '/about', name: 'about' },
-    { label: 'Approach', href: '/approach', name: 'approach' },
-    { label: 'Who We Support', href: '/who-we-support', name: 'who-we-support' },
-    { label: 'Pricing', href: '/pricing', name: 'pricing' },
-    { label: 'Contact Us', href: '/contact', name: 'contact' },
+const allNavItems = [
+    { label: 'Home',            href: '/',               locked: false },
+    { label: 'About Us',        href: '/about',          locked: false },
+    { label: 'Approach',        href: '/approach',       locked: true  },
+    { label: 'Who We Support',  href: '/who-we-support', locked: true  },
+    { label: 'Pricing',         href: '/pricing',        locked: true  },
+    { label: 'Contact Us',      href: '/contact',        locked: true  },
 ];
+
+const navItems = computed(() =>
+    page.props.pagesLocked
+        ? allNavItems.filter((item) => !item.locked)
+        : allNavItems
+);
 
 const handleScroll = () => {
     scrolled.value = window.scrollY > 50;
@@ -61,7 +68,7 @@ const closeMobile = () => { mobileOpen.value = false; };
             </nav>
 
             <!-- Book a Demo CTA -->
-            <div class="hidden lg:block">
+            <div v-if="!page.props.pagesLocked" class="hidden lg:block">
                 <Link href="/book-a-demo" class="btn-primary text-sm">
                     Book a Demo
                 </Link>
@@ -119,6 +126,7 @@ const closeMobile = () => { mobileOpen.value = false; };
                         {{ item.label }}
                     </Link>
                     <Link
+                        v-if="!page.props.pagesLocked"
                         href="/book-a-demo"
                         class="btn-primary text-sm text-center mt-2"
                         @click="closeMobile"

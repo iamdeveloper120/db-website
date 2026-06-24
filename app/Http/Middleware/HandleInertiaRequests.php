@@ -36,6 +36,7 @@ class HandleInertiaRequests extends Middleware
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
+            'pagesLocked' => (bool) env('PAGES_LOCKED', true),
         ];
     }
 }
