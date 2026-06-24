@@ -1,243 +1,99 @@
-# DB Laboratory Website — Claude Code Requirements
+# DB Website — Home Page Fix Requirements
 
-## Project Overview
+## Overview
+The home page has several design issues compared to the purchased HTML template.
+Fix each issue below by referencing the original template files directly.
 
-Convert a purchased HTML template into a fully functional **Laravel 13 + Inertia.js + Vue 3 SSR** website for a laboratory/science/research business (DB Website). The Laravel project is already scaffolded and running — build on top of it, do not reinstall or re-scaffold.
+**Template reference path:**
+`/home/muhammad-farhan/Downloads/db website/themeforest-KuKLb2kR-labrix-laboratory-science-research-html-template/html/01.laboratory-analysis/index.html`
 
----
-
-## Base Paths & Source Files
-
-| Asset | Path |
-|---|---|
-| Project base | `/home/muhammad-farhan/Downloads/db website/` |
-| HTML template | `/home/muhammad-farhan/Downloads/db website/themeforest-KuKLb2kR-labrix-laboratory-science-research-html-template/html/01.laboratory-analysis/` |
-| Home page reference | `index.html` inside the template path above |
-| Banner background image | `/home/muhammad-farhan/Downloads/db website/home_page_banner_bg_Image.png` |
-| Content guide | `/home/muhammad-farhan/Downloads/db website/20260622_DB_Website_Pages_Content_Guide.docx` |
-| Color palette | `/home/muhammad-farhan/Downloads/db website/260610 - colour palette.docx` |
-| Navigation flow map | `/home/muhammad-farhan/Downloads/db website/260610 - website flow map.docx` |
-| Home page images | `/home/muhammad-farhan/Downloads/db website/1. Website images/` |
+Always open the original `index.html` in the template folder and compare side by side before fixing anything. Do not guess — extract the exact CSS classes, JS plugin calls, animation configs, and HTML structure from the source template.
 
 ---
 
-## Tech Stack
+## Issue 1 — Play Button (Hero Section)
 
-- **Laravel 13** — backend, routing, SSR server
-- **Inertia.js** — bridge between Laravel and Vue
-- **Vue 3** — frontend, Composition API (`<script setup>`)
-- **SSR enabled** — Server-Side Rendering is active via `ssr.js`
+**Problem:**
+The entire play button (icon + "Watch Our Video" text) is rotating in a circle. Only the text label around the circular border should animate/rotate — the play icon in the center must stay completely still.
 
----
-
-## Step 1 — Read All Reference Documents First
-
-> Do this before writing any code.
-
-1. **Color Palette DOCX** — Extract all brand colors (primary, secondary, accent, background, text). Define them as CSS custom properties in `:root {}`.
-2. **Content Guide DOCX** — Extract all page names, section headings, and copy/text for every page.
-3. **Navigation Flow Map DOCX** — Extract all pages, their hierarchy, and menu structure.
-4. **HTML Template (`index.html`)** — Inspect all linked CSS, JS, fonts, and layout patterns to understand the full design system.
+**How to fix:**
+1. Open the original `index.html` and find the play button markup.
+2. Identify which element has the rotation animation applied (it should only be on the circular text path, not the wrapper or the icon).
+3. In the Vue component, ensure the CSS animation targets only the rotating text ring element.
+4. The center play icon must have `animation: none` and must not inherit any `transform` or `animation` from a parent.
+5. Match the rotation speed, direction, and style exactly to the original template.
 
 ---
 
-## Step 2 — Asset Migration
+## Issue 2 — Section Text / Scroll Animations
 
-Copy all template assets into the Laravel `public/` directory. Preserve the folder structure:
+**Problem:**
+The entrance animations on text elements (headings, paragraphs, labels) when sections scroll into view do not match the original template. The timing, easing, direction, and stagger are wrong.
 
-```
-public/
-└── assets/
-    ├── css/          ← all template CSS files
-    ├── js/           ← all template JS files
-    ├── images/       ← template images + website images + banner bg
-    ├── webfonts/     ← all web font files
-    └── vendor/       ← any vendor/plugin assets
-```
-
-- Do **not** use CDN links for anything that already exists locally.
-- Include `home_page_banner_bg_Image.png` and all images from `1. Website images/` folder.
+**How to fix:**
+1. Open the original `index.html` and check which animation library is being used (likely GSAP, AOS, WOW.js, or ScrollReveal — check the `<script>` tags and JS files).
+2. Find the exact animation configuration: `data-aos`, `data-wow-*`, or GSAP ScrollTrigger settings used on each section's text elements.
+3. Copy those exact `data-*` attributes or JS animation calls into the Vue components.
+4. Make sure the animation library JS is properly initialised after the component mounts (`onMounted` in Vue 3).
+5. Do not replace the original animation library with a different one.
 
 ---
 
-## Step 3 — robots.txt
+## Issue 3 — Typography (Font & Text Style)
 
-Create `public/robots.txt` with the following content to block **all** search engines and scrapers:
+**Problem:**
+Fonts and text styles across the home page do not match the purchased template. Weights, sizes, letter spacing, line height, and font families are off.
 
-```
-User-agent: *
-Disallow: /
-```
-
----
-
-## Step 4 — Project Architecture
-
-### Laravel (`routes/web.php`)
-
-- Each page = one Inertia route returning its corresponding Vue page component.
-- No API routes unless explicitly needed.
-
-### Vue 3 Directory Structure
-
-```
-resources/js/
-├── app.js
-├── ssr.js
-├── Components/
-│   ├── Layout/
-│   │   ├── AppLayout.vue        ← Master layout (Header + slot + Footer)
-│   │   ├── Header.vue           ← Site-wide navigation
-│   │   └── Footer.vue           ← Site-wide footer
-│   ├── Common/
-│   │   ├── PageLoader.vue       ← Inertia page transition loader
-│   │   ├── SectionTitle.vue     ← Reusable section heading
-│   │   ├── Button.vue           ← Reusable CTA button
-│   │   ├── Card.vue             ← Generic card
-│   │   └── Breadcrumb.vue       ← Breadcrumb trail
-│   └── [PageName]/              ← Page-specific section components
-│       └── [SectionName].vue
-├── Pages/
-│   ├── Home.vue
-│   ├── About.vue
-│   ├── Services.vue
-│   ├── Contact.vue
-│   └── [other pages per Flow Map]
-└── composables/
-    └── usePageMeta.js           ← SSR-safe head/meta helper
-```
+**How to fix:**
+1. Open the original template's CSS files (linked in `index.html`) and extract the exact font declarations:
+    - Font family names
+    - `@font-face` sources or Google Fonts `<link>` tags
+    - Font weights used per heading level (h1–h6) and body text
+2. Check that all webfont files from `public/assets/webfonts/` are loading correctly (check Network tab in browser DevTools).
+3. In the global CSS, ensure font variables and base typography match the template exactly:
+    - `font-family`
+    - `font-size`
+    - `font-weight`
+    - `line-height`
+    - `letter-spacing`
+    - `text-transform` (uppercase labels, etc.)
+4. Apply these styles globally via `app.css` or the relevant component — do not override them with scoped styles unless necessary.
 
 ---
 
-## Step 5 — Build Order
+## Issue 4 — "Pioneering Progress" Section (Left Side Layout)
 
-Follow this sequence strictly.
+**Problem:**
+In the section with the text *"Pioneering progress tracking to transform information into meaningful action."*, the left-side images are not in the correct position. The animated images (floating/parallax elements) and the heading text are also misaligned or missing their animations.
 
-### 5.1 — Global Styles & Design Tokens
-
-- Define all brand colors from the palette as CSS custom properties:
-
-```css
-:root {
-  --color-primary: ;
-  --color-secondary: ;
-  --color-accent: ;
-  --color-background: ;
-  --color-text: ;
-  /* etc. */
-}
-```
-
-- Import template CSS files in the same order they appear in `index.html`.
+**How to fix:**
+1. Open `index.html` and locate this specific section.
+2. Compare the HTML structure exactly — note the nesting order of image wrappers, animated elements, and text.
+3. Check if any images use absolute/relative positioning with specific `top`, `left`, `right`, `bottom` values — replicate these exactly in the component's CSS.
+4. Identify the animated image elements: check for classes like `.wow`, `data-aos`, or inline `data-*` animation attributes, and replicate them.
+5. Ensure the section's grid/flex layout columns match — check column widths, order, and gap values from the original CSS.
+6. This same fix pattern applies to **all other sections** with similar layout/image/animation issues — audit every section on the home page after fixing this one.
 
 ---
 
-### 5.2 — AppLayout.vue
+## Issue 5 — Footer Logo Not Displaying
 
-- Wraps every page.
-- Includes `<Header />`, `<slot />`, `<Footer />`.
-- Mounts `<PageLoader />` tied to Inertia's `router.on('start')` / `router.on('finish')` events.
-- Uses `<Head>` from `@inertiajs/vue3` for SSR-safe `<title>` and `<meta>` tags.
+**Problem:**
+The logo displays correctly in the header but is broken or missing in the footer.
 
----
-
-### 5.3 — Header.vue
-
-- Extract markup from the template's `<header>` section.
-- Navigation items and links must reflect the **Navigation Flow Map** document exactly.
-- Mobile-responsive hamburger menu.
-- Preserve any sticky/scroll behavior from the original template JS.
+**How to fix:**
+1. Open `Footer.vue` and check the `<img>` tag's `src` path for the logo.
+2. Compare the logo path used in `Header.vue` (where it works) — use the exact same path in the footer.
+3. Verify the image file exists in `public/assets/images/` and the path is correct relative to the public root.
+4. If the logo is a different variant for the footer (e.g. white/light version), check the original template's footer HTML for the correct file name and use that one.
 
 ---
 
-### 5.4 — Footer.vue
+## General Fix Rules
 
-- Extract markup from the template's `<footer>` section.
-- All links, columns, social icons, and copyright text must come from the **Content Guide**.
-
----
-
-### 5.5 — Home Page (Home.vue)
-
-Build each section as a separate child component, then assemble them in `Home.vue`:
-
-| Component | Notes |
-|---|---|
-| `HeroBanner.vue` | Background = `home_page_banner_bg_Image.png` |
-| `ServicesSection.vue` | |
-| `AboutSection.vue` | |
-| `StatsSection.vue` | |
-| `TestimonialsSection.vue` | |
-| *(other sections from index.html)* | |
-
-- All text content from the **Content Guide**.
-- All images from `1. Website images/` folder.
-
----
-
-### 5.6 — All Other Pages
-
-- Build every page listed in the **Navigation Flow Map**.
-- Each page uses `AppLayout` and its own page-specific section components.
-- All copy/text from the **Content Guide** — no lorem ipsum.
-- Visual design must match the HTML template precisely.
-
----
-
-## Step 6 — SSR Rules
-
-- No raw `window`, `document`, or browser APIs at the top level of any component.
-- Wrap browser APIs inside `onMounted()` or guard with `if (typeof window !== 'undefined')`.
-- Use `<Head>` from `@inertiajs/vue3` for all per-page `<title>` and meta tags.
-- Use `defineAsyncComponent` for any heavy or third-party widgets.
-- Avoid hydration mismatches — keep server and client renders consistent.
-
----
-
-## Step 7 — Page Loader
-
-- Implement a global loading indicator using Inertia's router events:
-  - `router.on('start', ...)` → show loader
-  - `router.on('finish', ...)` → hide loader
-- Show a branded loading bar or spinner during page transitions.
-- Optionally add skeleton screens for content-heavy sections.
-
----
-
-## Step 8 — Code Quality Standards
-
-| Rule | Requirement |
-|---|---|
-| Script syntax | Always use `<script setup>` (Vue 3 Composition API) |
-| Props | Always typed with `defineProps` |
-| Styles | No inline styles — use template CSS classes or CSS variables |
-| Colors | Never hardcode hex values — always use CSS custom properties |
-| Copy | All text from the Content Guide — no placeholder text |
-| Components | Reusable where possible — pass content as props |
-| File naming | PascalCase for `.vue` files, kebab-case for CSS classes |
-| Assets | All assets served from `public/assets/` — no external CDN unless unavoidable |
-
----
-
-## Step 9 — Per-Page Completion Checklist
-
-Before marking any page as done, verify:
-
-- [ ] Visually matches the HTML template
-- [ ] All text matches the Content Guide
-- [ ] All nav links match the Flow Map
-- [ ] Images load from `public/assets/images/`
-- [ ] SSR renders without errors (`php artisan inertia:start-ssr`)
-- [ ] No browser console errors
-- [ ] Mobile responsive
-- [ ] Page transitions show the loader
-
----
-
-## Important Rules
-
-- **Do not modify the original HTML template files** — they are read-only reference only.
-- Grab sections **one by one** from the template; convert each to a Vue component.
-- The final design must be **pixel-accurate** to the template.
-- `robots.txt` must disallow all bots — this site must not be publicly indexed.
-- If the Content Guide or Flow Map is ambiguous for any page, ask before proceeding.
+- **Always reference the original template** at the path above before making any change. Do not guess or estimate styles.
+- **Do not rewrite working sections** — only touch what is listed here.
+- **Extract exact values** — colors, sizes, animation durations, class names — directly from the source HTML/CSS/JS.
+- **Test after each fix** in the browser before moving to the next issue.
+- Fix issues **in the order listed** (Issue 1 → 2 → 3 → 4 → 5).
+- After all fixes, do a full scroll-through of the home page and compare it against the original `index.html` opened in the browser side by side.

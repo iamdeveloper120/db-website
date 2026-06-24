@@ -46,17 +46,36 @@ import { Link } from '@inertiajs/vue3';
                     </Link>
                 </div>
 
-                <!-- Video placeholder (no active link until video is ready) -->
-                <div class="flex items-center gap-4 mt-12 fade-in-up visible" style="animation-delay: 0.4s">
-                    <button
-                        class="w-14 h-14 rounded-full bg-white/20 border-2 border-white/50 flex items-center justify-center hover:bg-white/30 transition-all duration-300"
-                        disabled
+                <!-- Video circle (text ring rotates, play icon stays static) -->
+                <div class="mt-12 fade-in-up visible" style="animation-delay: 0.4s">
+                    <div
+                        class="relative w-[120px] h-[120px] cursor-default"
                         title="Video coming soon"
                         aria-label="Watch our video (coming soon)"
                     >
-                        <i class="fa-solid fa-play text-white text-sm ml-0.5" />
-                    </button>
-                    <span class="text-white/70 text-sm font-medium">Watch Our Video</span>
+                        <!-- Rotating outer text ring -->
+                        <svg
+                            class="absolute inset-0 w-full h-full animate-spin-slow"
+                            viewBox="0 0 120 120"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+                            <circle cx="60" cy="60" r="59.5" fill="white" fill-opacity="0.1" stroke="white" stroke-opacity="0.1"/>
+                            <defs>
+                                <path id="textRingPath" d="M60,60m-44,0a44,44,0,1,1,88,0a44,44,0,1,1,-88,0"/>
+                            </defs>
+                            <text fill="white" font-size="10.5" font-weight="500" letter-spacing="3" font-family="Manrope,sans-serif">
+                                <textPath href="#textRingPath">Watch Our Video • Watch Our Video •</textPath>
+                            </text>
+                        </svg>
+                        <!-- Static play button in centre -->
+                        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                            <div class="w-[62px] h-[62px] rounded-full bg-white/10 border border-white/10 backdrop-blur-sm flex items-center justify-center">
+                                <i class="fa-solid fa-play text-white text-sm ml-0.5" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

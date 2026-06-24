@@ -27,6 +27,9 @@ export default {
                 'text-dark': '#1E2938',
                 muted: '#7D8FA3',
             },
+            animation: {
+                'spin-slow': 'spin 20s linear infinite',
+            },
         },
     },
 

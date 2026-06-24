@@ -13,6 +13,17 @@
     --color-white: #FFFFFF;
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @layer base {
     html {
         scroll-behavior: smooth;
@@ -20,32 +31,66 @@
 
     body {
         @apply font-sans text-text-dark bg-white antialiased;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1em;
+    }
+
+    p {
+        line-height: 1.6em;
     }
 
     h1, h2, h3, h4, h5, h6 {
         @apply font-heading;
+        font-weight: 400;
+        line-height: 1.2em;
+        letter-spacing: -0.02em;
     }
 }
 
 @layer components {
     .btn-primary {
         @apply inline-flex items-center justify-center px-7 py-3 bg-primary text-white font-semibold rounded-full transition-all duration-300 hover:bg-primary-light hover:shadow-lg;
+        letter-spacing: 0;
     }
 
     .btn-outline {
         @apply inline-flex items-center justify-center px-7 py-3 border-2 border-primary text-primary font-semibold rounded-full transition-all duration-300 hover:bg-primary hover:text-white;
+        letter-spacing: 0;
     }
 
     .btn-accent {
         @apply inline-flex items-center justify-center px-7 py-3 bg-accent text-primary font-semibold rounded-full transition-all duration-300 hover:bg-accent-light hover:shadow-lg;
+        letter-spacing: 0;
     }
 
     .section-tag {
-        @apply inline-block text-sm font-semibold text-primary-light uppercase tracking-widest mb-3;
+        position: relative;
+        @apply inline-flex items-center text-sm font-medium text-primary;
+        border: 1px solid #243E5C;
+        border-radius: 100px;
+        padding: 8px 16px 8px 32px;
+        margin-bottom: 10px;
+        letter-spacing: 0;
+    }
+
+    .section-tag::before {
+        content: '';
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        @apply bg-accent;
+        border-radius: 50%;
+        width: 6px;
+        height: 6px;
     }
 
     .section-title {
-        @apply font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary leading-tight;
+        @apply font-heading text-3xl md:text-[40px] lg:text-[46px] text-primary;
+        font-weight: 400;
+        line-height: 1.2em;
+        letter-spacing: -0.02em;
     }
 
     .section-subtitle {
@@ -54,13 +99,10 @@
 
     .fade-in-up {
         opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     .fade-in-up.visible {
-        opacity: 1;
-        transform: translateY(0);
+        animation: fadeInUp 0.7s ease forwards;
     }
 }
 
