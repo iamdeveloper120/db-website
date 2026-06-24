@@ -13,12 +13,7 @@ php artisan serve --port=8000   # alternative if Valet isn't running
 
 # SSR node server (must be running alongside PHP when SSR is enabled)
 node bootstrap/ssr/ssr.js
-
-# Share publicly via ngrok (requires all three running)
-ngrok http 8000
 ```
-
-**Sharing via ngrok:** Never run `npm run dev` while sharing — it creates `public/hot` and all asset URLs become `http://localhost:5173/...` which are unreachable externally. Stop Vite dev server first; `public/hot` must not exist. Asset URLs are configured to be root-relative in `AppServiceProvider` so they work on any domain.
 
 ## Architecture
 
@@ -65,6 +60,4 @@ ngrok http 8000
 - States: `-visible` (small dot), `-opaque` (large circle with `mix-blend-mode: exclusion` on headings), `-pointer` (hidden on links), `-text`, `-active`, `-hidden`
 
 ## Git
-- Single author on all commits: `--author="Muhammad Farhan <itianz@outlook.com>"`
-- No `Co-Authored-By` trailers — ever
 - Remote: `git@github.com:iamdeveloper120/db-website.git`
