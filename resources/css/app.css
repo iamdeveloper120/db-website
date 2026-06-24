@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-primary: #243E5C;
+    --color-primary-light: #385A7D;
+    --color-accent: #C7F1DE;
+    --color-accent-light: #DDF7EB;
+    --color-surface: #E8EEF3;
+    --color-text-dark: #1E2938;
+    --color-muted: #7D8FA3;
+    --color-white: #FFFFFF;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply font-sans text-text-dark bg-white antialiased;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-heading;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply inline-flex items-center justify-center px-7 py-3 bg-primary text-white font-semibold rounded-full transition-all duration-300 hover:bg-primary-light hover:shadow-lg;
+    }
+
+    .btn-outline {
+        @apply inline-flex items-center justify-center px-7 py-3 border-2 border-primary text-primary font-semibold rounded-full transition-all duration-300 hover:bg-primary hover:text-white;
+    }
+
+    .btn-accent {
+        @apply inline-flex items-center justify-center px-7 py-3 bg-accent text-primary font-semibold rounded-full transition-all duration-300 hover:bg-accent-light hover:shadow-lg;
+    }
+
+    .section-tag {
+        @apply inline-block text-sm font-semibold text-primary-light uppercase tracking-widest mb-3;
+    }
+
+    .section-title {
+        @apply font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-primary leading-tight;
+    }
+
+    .section-subtitle {
+        @apply text-muted text-lg leading-relaxed;
+    }
+
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
