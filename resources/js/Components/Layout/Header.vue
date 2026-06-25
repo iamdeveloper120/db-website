@@ -17,8 +17,8 @@ const navItems = [
         href: '/about',
         children: [
             { label: 'Mission and Vision',  href: '/about#mission-vision' },
-            { label: 'Values',              href: '/about#values' },
-            { label: 'Leadership Team',     href: '/about#leadership-team' },
+            { label: 'Our Values',          href: '/about#values' },
+            { label: 'Why We Created DB',   href: '/about#why-we-created-db' },
         ],
     },
     {
