@@ -9,21 +9,21 @@ import { Link } from '@inertiajs/vue3';
 
                 <!-- Images: staggered overlap — Image 1 in flow, Image 2 overlaps bottom-right -->
                 <div class="relative pb-20 fade-in-up">
-                    <!-- Image 1: normal flow, pulls left to leave room for Image 2 -->
-                    <div class="mr-[14%] rounded-2xl overflow-hidden shadow-lg">
+                    <!-- Image 1 -->
+                    <div class="mr-[14%]">
                         <img
                             src="/assets/images/child-playing-with-family.png"
                             alt="Child playing with family"
-                            class="w-full aspect-[4/3] object-cover"
+                            class="w-full object-contain drop-shadow-xl"
                             loading="lazy"
                         />
                     </div>
-                    <!-- Image 2: absolutely positioned, overlaps bottom-right of Image 1 -->
-                    <div class="absolute bottom-0 right-0 w-[54%] rounded-2xl overflow-hidden shadow-xl border-white">
+                    <!-- Image 2: overlaps bottom-right -->
+                    <div class="absolute bottom-0 right-0 w-[54%]">
                         <img
                             src="/assets/images/family-at-the-park.png"
                             alt="Family at the park"
-                            class="w-full aspect-[4/3] object-cover"
+                            class="w-full object-contain drop-shadow-2xl"
                             loading="lazy"
                         />
                     </div>
@@ -52,9 +52,11 @@ import { Link } from '@inertiajs/vue3';
                         <li
                             v-for="point in ['Evidence-Informed Decisions', 'Meaningful Outcomes', 'Family Engagement', 'Real-World Generalisation']"
                             :key="point"
-                            class="flex items-center gap-3 text-text-dark font-medium"
+                            class="flex items-center gap-3 text-primary font-semibold"
                         >
-                            <i class="fa-solid fa-circle-check text-accent text-lg shrink-0" />
+                            <span class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-check text-accent text-[10px]" />
+                            </span>
                             {{ point }}
                         </li>
                     </ul>

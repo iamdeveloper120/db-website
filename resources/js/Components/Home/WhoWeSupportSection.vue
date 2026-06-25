@@ -17,7 +17,7 @@ const audiences = [
         body: 'For clinics, timely access to information is essential for effective supervision, decision-making, and programme development. Development Beyond helps practitioners spend less time preparing information and more time analysing progress.',
     },
     {
-        icon: 'fa-solid fa-house-heart',
+        icon: 'fa-solid fa-people-roof',
         title: 'Families',
         image: '/assets/images/child-baking-with-family.png',
         imageAlt: 'Child baking with family — families',

@@ -2,6 +2,7 @@
 import AppLayout from '../Components/Layout/AppLayout.vue';
 import { Link } from '@inertiajs/vue3';
 import { useScrollReveal } from '../composables/useScrollReveal';
+import RollingTicker from '../Components/Home/RollingTicker.vue';
 
 useScrollReveal();
 
@@ -40,7 +41,7 @@ const audiences = [
         closing: 'By reducing the time required to prepare information, practitioners can focus on reviewing progress, training staff, and supporting meaningful change.',
     },
     {
-        icon: 'fa-solid fa-house-heart',
+        icon: 'fa-solid fa-people-roof',
         title: 'Families',
         image: '/assets/images/child-baking-with-family.png',
         imageAlt: 'Child baking with family — families',
@@ -76,6 +77,7 @@ const audiences = [
                 </p>
             </div>
         </section>
+        <RollingTicker />
 
         <!-- Audience sections -->
         <section

@@ -2,6 +2,7 @@
 import AppLayout from '../Components/Layout/AppLayout.vue';
 import { ref } from 'vue';
 import { useScrollReveal } from '../composables/useScrollReveal';
+import RollingTicker from '../Components/Home/RollingTicker.vue';
 
 useScrollReveal();
 
@@ -54,6 +55,7 @@ const handleSubmit = async () => {
                 </p>
             </div>
         </section>
+        <RollingTicker />
 
         <!-- Form -->
         <section class="py-24 bg-surface">

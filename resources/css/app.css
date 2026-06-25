@@ -25,6 +25,11 @@
 }
 
 @layer base {
+    ::selection {
+        background-color: #C7F1DE;
+        color: #243E5C;
+    }
+
     html {
         scroll-behavior: smooth;
     }

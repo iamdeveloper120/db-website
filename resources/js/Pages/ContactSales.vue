@@ -3,6 +3,7 @@ import AppLayout from '../Components/Layout/AppLayout.vue';
 import { Link } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import { useScrollReveal } from '../composables/useScrollReveal';
+import RollingTicker from '../Components/Home/RollingTicker.vue';
 
 useScrollReveal();
 
@@ -66,6 +67,7 @@ const nextSteps = [
                 </p>
             </div>
         </section>
+        <RollingTicker />
 
         <!-- What happens next -->
         <section class="py-16 bg-white border-b border-surface">

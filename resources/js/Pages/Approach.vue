@@ -2,6 +2,7 @@
 import AppLayout from '../Components/Layout/AppLayout.vue';
 import { Link } from '@inertiajs/vue3';
 import { useScrollReveal } from '../composables/useScrollReveal';
+import RollingTicker from '../Components/Home/RollingTicker.vue';
 
 useScrollReveal();
 
@@ -111,6 +112,7 @@ const trackingLevels = [
                 </p>
             </div>
         </section>
+        <RollingTicker />
 
         <!-- What We Do -->
         <section id="what-we-do" class="py-24 bg-white">

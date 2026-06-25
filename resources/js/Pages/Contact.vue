@@ -3,6 +3,7 @@ import AppLayout from '../Components/Layout/AppLayout.vue';
 import { Link } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import { useScrollReveal } from '../composables/useScrollReveal';
+import RollingTicker from '../Components/Home/RollingTicker.vue';
 
 useScrollReveal();
 
@@ -52,6 +53,7 @@ const handleSubmit = async () => {
                 </p>
             </div>
         </section>
+        <RollingTicker />
 
         <!-- Contact form + info -->
         <section class="py-24 bg-surface">
@@ -69,7 +71,7 @@ const handleSubmit = async () => {
                                     </div>
                                     <div>
                                         <p class="font-semibold text-text-dark text-sm mb-1">Email</p>
-                                        <p class="text-muted text-sm">hello@developmentbeyond.com</p>
+                                        <p class="text-muted text-sm">info@developmentbeyond.com</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start gap-4">
