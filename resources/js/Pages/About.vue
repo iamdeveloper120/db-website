@@ -2,6 +2,7 @@
 import AppLayout from '../Components/Layout/AppLayout.vue';
 import { Link } from '@inertiajs/vue3';
 import { useScrollReveal } from '../composables/useScrollReveal';
+import RollingTicker from '../Components/Home/RollingTicker.vue';
 
 useScrollReveal();
 
@@ -51,9 +52,10 @@ const values = [
                 </p>
             </div>
         </section>
+        <RollingTicker />
 
         <!-- Mission & Vision -->
-        <section class="py-24 bg-white">
+        <section id="mission-vision" class="py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="grid lg:grid-cols-2 gap-16">
                     <div class="fade-in-up">
@@ -85,7 +87,7 @@ const values = [
         </section>
 
         <!-- Values -->
-        <section class="py-24 bg-surface">
+        <section id="values" class="py-24 bg-surface">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-2xl mx-auto mb-16">
                     <p class="section-tag fade-in-up">Our Values</p>
@@ -109,7 +111,7 @@ const values = [
         </section>
 
         <!-- Why We Created DB -->
-        <section class="py-24 bg-white">
+        <section id="why-we-created-db" class="py-24 bg-white">
             <div class="container mx-auto px-6">
                 <div class="grid lg:grid-cols-2 gap-16 items-center">
                     <div class="fade-in-up">

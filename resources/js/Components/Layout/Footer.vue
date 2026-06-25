@@ -25,14 +25,15 @@ const ctaLinks = [
 
                 <!-- Brand column -->
                 <div class="lg:col-span-2">
-                    <Link href="/" class="inline-block mb-6">
-                        <div class="bg-white rounded-xl px-4 py-2 inline-flex">
-                            <img
-                                src="/assets/images/logo-full.png"
-                                alt="Development Beyond"
-                                class="h-10 w-auto object-contain"
-                            />
-                        </div>
+                    <Link href="/" class="inline-flex items-center gap-3 mb-6">
+                        <img
+                            src="/assets/images/logo-transparent.png"
+                            alt="Development Beyond"
+                            class="h-10 w-auto object-contain"
+                        />
+                        <span class="font-heading font-bold text-base text-white leading-tight">
+                            Development<br>Beyond
+                        </span>
                     </Link>
                     <p class="text-white/70 text-sm leading-relaxed max-w-sm mb-8">
                         Development Beyond helps practitioners, families, and organisations

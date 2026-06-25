@@ -17,8 +17,8 @@ const navItems = [
         href: '/about',
         children: [
             { label: 'Mission and Vision',  href: '/about#mission-vision' },
-            { label: 'Values',              href: '/about#values' },
-            { label: 'Leadership Team',     href: '/about#leadership-team' },
+            { label: 'Our Values',          href: '/about#values' },
+            { label: 'Why We Created DB',   href: '/about#why-we-created-db' },
         ],
     },
     {
@@ -91,12 +91,18 @@ const toggleMobileDropdown = (label) => {
         <div class="container mx-auto px-6 flex items-center justify-between">
 
             <!-- Logo -->
-            <Link href="/" class="flex items-center shrink-0">
+            <Link href="/" class="flex items-center gap-3 shrink-0">
                 <img
-                    src="/assets/images/logo.jpg"
+                    src="/assets/images/logo-transparent.png"
                     alt="Development Beyond"
-                    class="h-12 w-auto object-contain"
+                    class="h-10 w-auto object-contain"
                 />
+                <span
+                    class="font-heading font-bold text-sm leading-tight transition-colors duration-300"
+                    :class="scrolled ? 'text-primary' : 'text-white'"
+                >
+                    Development<br>Beyond
+                </span>
             </Link>
 
             <!-- Desktop Nav -->

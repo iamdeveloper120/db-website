@@ -17,7 +17,7 @@ const audiences = [
         body: 'For clinics, timely access to information is essential for effective supervision, decision-making, and programme development. Development Beyond helps practitioners spend less time preparing information and more time analysing progress.',
     },
     {
-        icon: 'fa-solid fa-house-heart',
+        icon: 'fa-solid fa-people-roof',
         title: 'Families',
         image: '/assets/images/child-baking-with-family.png',
         imageAlt: 'Child baking with family — families',
@@ -47,11 +47,11 @@ const audiences = [
                     class="group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-surface fade-in-up"
                     :style="`animation-delay: ${i * 0.1}s`"
                 >
-                    <div class="aspect-video overflow-hidden">
+                    <div class="h-56 overflow-hidden">
                         <img
                             :src="audience.image"
                             :alt="audience.imageAlt"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                             loading="lazy"
                         />
                     </div>

@@ -3,34 +3,29 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <section class="py-24 bg-surface">
+    <section class="py-24 bg-accent-light">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
 
-                <!-- Images grid -->
-                <div class="relative grid grid-cols-2 gap-4 pb-10 fade-in-up">
-                    <div class="rounded-2xl overflow-hidden aspect-[3/4]">
+                <!-- Images: staggered overlap — Image 1 in flow, Image 2 overlaps bottom-right -->
+                <div class="relative pb-20 fade-in-up">
+                    <!-- Image 1 -->
+                    <div class="mr-[14%]">
                         <img
                             src="/assets/images/child-playing-with-family.png"
                             alt="Child playing with family"
-                            class="w-full h-full object-cover"
+                            class="w-full object-contain drop-shadow-xl"
                             loading="lazy"
                         />
                     </div>
-                    <div class="rounded-2xl overflow-hidden aspect-[3/4] mt-8">
+                    <!-- Image 2: overlaps bottom-right -->
+                    <div class="absolute bottom-0 right-0 w-[54%]">
                         <img
                             src="/assets/images/family-at-the-park.png"
                             alt="Family at the park"
-                            class="w-full h-full object-cover"
+                            class="w-full object-contain drop-shadow-2xl"
                             loading="lazy"
                         />
-                    </div>
-                    <!-- Stats badge -->
-                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary text-white rounded-2xl px-6 py-4 shadow-xl flex items-center gap-4 whitespace-nowrap z-10">
-                        <div class="text-center">
-                            <p class="font-heading font-bold text-2xl text-accent" style="letter-spacing: 0">DBIS</p>
-                            <p class="text-white/70 text-xs" style="letter-spacing: 0">Development Beyond<br>Information System</p>
-                        </div>
                     </div>
                 </div>
 
@@ -57,9 +52,11 @@ import { Link } from '@inertiajs/vue3';
                         <li
                             v-for="point in ['Evidence-Informed Decisions', 'Meaningful Outcomes', 'Family Engagement', 'Real-World Generalisation']"
                             :key="point"
-                            class="flex items-center gap-3 text-text-dark font-medium"
+                            class="flex items-center gap-3 text-primary font-semibold"
                         >
-                            <i class="fa-solid fa-circle-check text-accent text-lg shrink-0" />
+                            <span class="w-6 h-6 rounded-full bg-primary flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-check text-accent text-[10px]" />
+                            </span>
                             {{ point }}
                         </li>
                     </ul>

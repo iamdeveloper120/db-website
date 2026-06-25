@@ -66,6 +66,12 @@ const testimonials = [
 </template>
 
 <style>
+.testimonials-swiper .swiper-wrapper {
+    align-items: stretch;
+}
+.testimonials-swiper .swiper-slide {
+    height: auto;
+}
 .testimonials-swiper .swiper-pagination-bullet {
     background: rgba(255,255,255,0.5);
     opacity: 1;

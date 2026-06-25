@@ -73,9 +73,17 @@ export function useMagicCursor() {
         });
     }
 
+    function onScroll() {
+        // Re-check what is under the cursor after the page moves
+        const el = document.elementFromPoint(mouse.x, mouse.y);
+        if (!el || !el.closest('h1, h2')) {
+            removeState('-opaque');
+        }
+    }
+
     function loop() {
-        pos.x = lerp(pos.x, mouse.x, 0.15);
-        pos.y = lerp(pos.y, mouse.y, 0.15);
+        pos.x = lerp(pos.x, mouse.x, 0.22);
+        pos.y = lerp(pos.y, mouse.y, 0.22);
         if (cursor) {
             cursor.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
         }
@@ -90,6 +98,7 @@ export function useMagicCursor() {
         document.addEventListener('mouseleave', onDocLeave);
         document.addEventListener('mouseover', onOver);
         document.addEventListener('mouseout', onOut);
+        window.addEventListener('scroll', onScroll, { passive: true });
         loop();
     });
 
@@ -102,5 +111,6 @@ export function useMagicCursor() {
         document.removeEventListener('mouseleave', onDocLeave);
         document.removeEventListener('mouseover', onOver);
         document.removeEventListener('mouseout', onOut);
+        window.removeEventListener('scroll', onScroll);
     });
 }

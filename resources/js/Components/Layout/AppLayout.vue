@@ -1,5 +1,5 @@
 <script setup>
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 import Header from './Header.vue';
 import Footer from './Footer.vue';
 import PageLoader from '../Common/PageLoader.vue';
@@ -28,5 +28,23 @@ useMagicCursor();
             <slot />
         </main>
         <Footer />
+    </div>
+
+    <!-- Floating right-side quick links -->
+    <div class="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col shadow-lg rounded-l-xl overflow-hidden">
+        <Link
+            href="/who-we-support"
+            title="Who We Support — Schools"
+            class="w-12 h-12 bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-200 border-b border-surface"
+        >
+            <i class="fa-solid fa-school text-lg" />
+        </Link>
+        <Link
+            href="/approach"
+            title="Our Approach — Learning"
+            class="w-12 h-12 bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-200"
+        >
+            <i class="fa-solid fa-book-open text-lg" />
+        </Link>
     </div>
 </template>
