@@ -47,11 +47,11 @@ const audiences = [
                     class="group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-surface fade-in-up"
                     :style="`animation-delay: ${i * 0.1}s`"
                 >
-                    <div class="aspect-video overflow-hidden">
+                    <div class="h-56 overflow-hidden">
                         <img
                             :src="audience.image"
                             :alt="audience.imageAlt"
-                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                             loading="lazy"
                         />
                     </div>

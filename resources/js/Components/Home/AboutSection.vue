@@ -3,34 +3,29 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <section class="py-24 bg-surface">
+    <section class="py-24 bg-accent-light">
         <div class="container mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
 
-                <!-- Images grid -->
-                <div class="relative grid grid-cols-2 gap-4 pb-10 fade-in-up">
-                    <div class="rounded-2xl overflow-hidden aspect-[3/4]">
+                <!-- Images: staggered overlap — Image 1 in flow, Image 2 overlaps bottom-right -->
+                <div class="relative pb-20 fade-in-up">
+                    <!-- Image 1: normal flow, pulls left to leave room for Image 2 -->
+                    <div class="mr-[14%] rounded-2xl overflow-hidden shadow-lg">
                         <img
                             src="/assets/images/child-playing-with-family.png"
                             alt="Child playing with family"
-                            class="w-full h-full object-cover"
+                            class="w-full aspect-[4/3] object-cover"
                             loading="lazy"
                         />
                     </div>
-                    <div class="rounded-2xl overflow-hidden aspect-[3/4] mt-8">
+                    <!-- Image 2: absolutely positioned, overlaps bottom-right of Image 1 -->
+                    <div class="absolute bottom-0 right-0 w-[54%] rounded-2xl overflow-hidden shadow-xl border-white">
                         <img
                             src="/assets/images/family-at-the-park.png"
                             alt="Family at the park"
-                            class="w-full h-full object-cover"
+                            class="w-full aspect-[4/3] object-cover"
                             loading="lazy"
                         />
-                    </div>
-                    <!-- Stats badge -->
-                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary text-white rounded-2xl px-6 py-4 shadow-xl flex items-center gap-4 whitespace-nowrap z-10">
-                        <div class="text-center">
-                            <p class="font-heading font-bold text-2xl text-accent" style="letter-spacing: 0">DBIS</p>
-                            <p class="text-white/70 text-xs" style="letter-spacing: 0">Development Beyond<br>Information System</p>
-                        </div>
                     </div>
                 </div>
 

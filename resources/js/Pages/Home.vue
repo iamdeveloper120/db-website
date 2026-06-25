@@ -7,7 +7,6 @@ import AboutSection from '../Components/Home/AboutSection.vue';
 import WhoWeSupportSection from '../Components/Home/WhoWeSupportSection.vue';
 import WhatWeDoSection from '../Components/Home/WhatWeDoSection.vue';
 import MissionSection from '../Components/Home/MissionSection.vue';
-import PricingPreviewSection from '../Components/Home/PricingPreviewSection.vue';
 import TestimonialsSection from '../Components/Home/TestimonialsSection.vue';
 import ClosingCTA from '../Components/Home/ClosingCTA.vue';
 import { useScrollReveal } from '../composables/useScrollReveal';
@@ -27,7 +26,6 @@ useScrollReveal();
         <WhoWeSupportSection />
         <WhatWeDoSection />
         <MissionSection />
-        <PricingPreviewSection />
         <TestimonialsSection />
         <ClosingCTA />
     </AppLayout>
