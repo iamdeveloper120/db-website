@@ -28,11 +28,11 @@ const features = [
                 <div>
                     <p class="section-tag fade-in-up">Why Development Beyond?</p>
                     <h2 class="section-title fade-in-up mt-2">
-                        Simple progress tracking that turns information into meaningful action.
+                        Progress tracking that turns information into meaningful action.
                     </h2>
                 </div>
                 <div class="flex flex-col justify-end">
-                    <p class="section-subtitle fade-in-up">
+                    <p class="text-muted leading-relaxed fade-in-up">
                         Collecting information is only the beginning. Real progress happens when information
                         is used to make informed decisions, guide teaching, and support meaningful outcomes.
                     </p>
@@ -48,7 +48,7 @@ const features = [
                     </p>
                     <div class="flex flex-wrap gap-4 mt-8 fade-in-up">
                         <Link href="/book-a-demo" class="btn-primary">Book a Demo</Link>
-                        <Link href="/contact-sales" class="btn-outline">Contact Sales</Link>
+                        <Link href="/contact" class="btn-outline">Contact Sales</Link>
                     </div>
                 </div>
             </div>

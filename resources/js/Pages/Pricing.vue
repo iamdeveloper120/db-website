@@ -142,7 +142,7 @@ const faqs = [
                                 </li>
                             </ul>
                             <Link
-                                href="/contact-sales"
+                                href="/contact"
                                 class="block text-center py-3 px-6 rounded-full font-semibold text-sm transition-all duration-300"
                                 :class="plan.highlight
                                     ? 'bg-accent text-primary hover:bg-accent-light'
@@ -191,7 +191,7 @@ const faqs = [
                     and your goals — and recommend the plan that makes the most sense.
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center fade-in-up">
-                    <Link href="/contact-sales" class="btn-primary">Contact Sales</Link>
+                    <Link href="/contact" class="btn-primary">Contact Sales</Link>
                     <Link href="/book-a-demo" class="btn-outline">Book a Demo</Link>
                 </div>
             </div>

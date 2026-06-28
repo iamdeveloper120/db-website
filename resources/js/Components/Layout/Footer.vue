@@ -14,7 +14,7 @@ const quickLinks = [
 
 const ctaLinks = [
     { label: 'Book a Demo', href: '/book-a-demo' },
-    { label: 'Contact Sales', href: '/contact-sales' },
+    { label: 'Contact Sales', href: '/contact' },
 ];
 </script>
 
@@ -29,22 +29,21 @@ const ctaLinks = [
                         <img
                             src="/assets/images/logo-transparent.png"
                             alt="Development Beyond"
-                            class="h-10 w-auto object-contain"
+                            class="h-12 w-12 object-contain shrink-0"
+                            style="background-color: white; border-radius: 1rem;"
                         />
-                        <span class="font-heading font-bold text-base text-white leading-tight">
+                        <span class="font-heading font-medium text-sm text-white leading-tight">
                             Development<br>Beyond
                         </span>
                     </Link>
                     <p class="text-white/70 text-sm leading-relaxed max-w-sm mb-8">
-                        Development Beyond helps practitioners, families, and organisations
-                        understand progress, demonstrate meaningful outcomes, and support the
-                        application of learning across home, school, and community settings.
+                       Development Beyond helps practitioners, families, and organisations measure progress, demonstrate the impact of their work, and support the application of learning across home, school, and community settings.
                     </p>
                     <div class="flex gap-4">
                         <Link href="/book-a-demo" class="btn-accent text-sm">
                             Book a Demo
                         </Link>
-                        <Link href="/contact-sales" class="btn-outline border-white text-white hover:bg-white hover:text-primary text-sm">
+                        <Link href="/contact" class="btn-outline border-white text-white hover:bg-white hover:text-primary text-sm">
                             Contact Sales
                         </Link>
                     </div>

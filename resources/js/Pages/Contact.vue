@@ -40,8 +40,7 @@ const handleSubmit = async () => {
     <AppLayout title="Contact Us" description="Get in touch with the Development Beyond team. We'd love to hear from you.">
 
         <!-- Page Hero -->
-        <section class="pt-40 pb-20 bg-primary relative overflow-hidden">
-            <div class="absolute inset-0 bg-[url('/assets/images/hero-bg.png')] bg-cover bg-center opacity-20" aria-hidden="true" />
+        <section class="pt-40 pb-20 bg-primary">
             <div class="relative z-10 container mx-auto px-6">
                 <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-4">Contact Us</p>
                 <h1 class="font-heading text-4xl md:text-5xl font-bold text-white max-w-2xl leading-tight mb-6">
@@ -74,15 +73,6 @@ const handleSubmit = async () => {
                                         <p class="text-muted text-sm">info@developmentbeyond.com</p>
                                     </div>
                                 </div>
-                                <div class="flex items-start gap-4">
-                                    <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                                        <i class="fa-solid fa-clock text-primary text-sm" />
-                                    </div>
-                                    <div>
-                                        <p class="font-semibold text-text-dark text-sm mb-1">Response Time</p>
-                                        <p class="text-muted text-sm">We aim to respond within 1–2 business days.</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -97,16 +87,6 @@ const handleSubmit = async () => {
                             </Link>
                         </div>
 
-                        <div class="bg-white rounded-2xl p-8 shadow-sm fade-in-up">
-                            <h3 class="font-heading font-bold text-lg text-primary mb-3">Sales enquiries</h3>
-                            <p class="text-muted text-sm leading-relaxed mb-6">
-                                Interested in a plan for your organisation? Our sales team can help with
-                                pricing, onboarding, and any specific requirements you have.
-                            </p>
-                            <Link href="/contact-sales" class="inline-flex items-center gap-2 text-primary font-semibold text-sm hover:underline">
-                                Contact Sales <i class="fa-solid fa-arrow-right text-xs" />
-                            </Link>
-                        </div>
                     </div>
 
                     <!-- Form -->
@@ -125,28 +105,28 @@ const handleSubmit = async () => {
                             <h2 class="font-heading text-2xl font-bold text-primary mb-8">Send Us a Message</h2>
 
                             <div class="grid sm:grid-cols-2 gap-6 mb-6">
-                                <div>
+                                <div class="min-w-0">
                                     <label for="name" class="block text-sm font-semibold text-text-dark mb-2">Full Name <span class="text-red-500">*</span></label>
                                     <input id="name" v-model="form.name" type="text" required placeholder="Your full name"
-                                        class="w-full px-4 py-3 rounded-xl border border-surface bg-surface focus:outline-none focus:border-primary focus:bg-white transition-colors text-text-dark text-sm" />
+                                        class="w-full min-w-0 px-4 py-3 rounded-xl border border-surface bg-surface focus:outline-none focus:border-primary focus:bg-white transition-colors text-text-dark text-sm" />
                                 </div>
-                                <div>
+                                <div class="min-w-0">
                                     <label for="email" class="block text-sm font-semibold text-text-dark mb-2">Email Address <span class="text-red-500">*</span></label>
                                     <input id="email" v-model="form.email" type="email" required placeholder="your@email.com"
-                                        class="w-full px-4 py-3 rounded-xl border border-surface bg-surface focus:outline-none focus:border-primary focus:bg-white transition-colors text-text-dark text-sm" />
+                                        class="w-full min-w-0 px-4 py-3 rounded-xl border border-surface bg-surface focus:outline-none focus:border-primary focus:bg-white transition-colors text-text-dark text-sm" />
                                 </div>
                             </div>
 
                             <div class="grid sm:grid-cols-2 gap-6 mb-6">
-                                <div>
+                                <div class="min-w-0">
                                     <label for="organisation" class="block text-sm font-semibold text-text-dark mb-2">Organisation</label>
                                     <input id="organisation" v-model="form.organisation" type="text" placeholder="Your organisation (optional)"
-                                        class="w-full px-4 py-3 rounded-xl border border-surface bg-surface focus:outline-none focus:border-primary focus:bg-white transition-colors text-text-dark text-sm" />
+                                        class="w-full min-w-0 px-4 py-3 rounded-xl border border-surface bg-surface focus:outline-none focus:border-primary focus:bg-white transition-colors text-text-dark text-sm" />
                                 </div>
-                                <div>
+                                <div class="min-w-0">
                                     <label for="subject" class="block text-sm font-semibold text-text-dark mb-2">Subject</label>
                                     <select id="subject" v-model="form.subject"
-                                        class="w-full px-4 py-3 rounded-xl border border-surface bg-surface focus:outline-none focus:border-primary focus:bg-white transition-colors text-text-dark text-sm">
+                                        class="w-full min-w-0 px-4 py-3 rounded-xl border border-surface bg-surface focus:outline-none focus:border-primary focus:bg-white transition-colors text-text-dark text-sm">
                                         <option value="" disabled>Select a subject</option>
                                         <option v-for="s in subjects" :key="s" :value="s">{{ s }}</option>
                                     </select>

@@ -61,7 +61,7 @@ const collectionMethods = [
     { icon: 'fa-solid fa-star-half-stroke', label: 'Quality Ratings', example: null },
     { icon: 'fa-solid fa-comment-dots', label: 'Comments', example: null },
     { icon: 'fa-solid fa-star', label: 'Wow Moments', example: null },
-    { icon: 'fa-solid fa-images', label: 'Evidence for Learning Journal', example: 'permanent products' },
+    { icon: 'fa-solid fa-images', label: 'Evidence for Learning', example: 'permanent products' },
 ];
 
 const analysisTypes = [

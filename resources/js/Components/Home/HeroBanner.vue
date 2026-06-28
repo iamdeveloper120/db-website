@@ -21,29 +21,32 @@ import { Link } from '@inertiajs/vue3';
             <div class="max-w-3xl">
                 <!-- Small tag line -->
                 <p class="text-accent font-semibold text-sm uppercase tracking-widest mb-5 fade-in-up visible">
-                    Simple Progress Tracking. Meaningful Outcomes.
+                    Data Collection. Progress Tracking. Meaningful Outcomes.
                 </p>
 
                 <!-- Headline -->
-                <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 fade-in-up visible" style="animation-delay: 0.1s">
-                    Beyond Data. Beyond Targets.
-                    <span class="text-accent">Beyond The Session.</span>
+                <h1 class="font-heading text-4xl xl:text-5xl font-bold text-white leading-tight whitespace-nowrap pb-4 fade-in-up visible" style="animation-delay: 0.1s">
+                    Beyond Data.
+                </h1>
+                <h1 class="font-heading text-4xl xl:text-5xl font-bold text-white leading-tight whitespace-nowrap pb-4 fade-in-up visible" style="animation-delay: 0.1s">
+                    Beyond Tracking.
+                </h1>
+                <h1 class="font-heading text-4xl xl:text-5xl font-bold text-accent leading-tight mb-6 fade-in-up visible" style="animation-delay: 0.15s">
+                    Beyond The Session.
                 </h1>
 
                 <!-- Body -->
                 <p class="text-white/80 text-lg leading-relaxed max-w-2xl mb-10 fade-in-up visible" style="animation-delay: 0.2s">
-                    Development Beyond helps practitioners, families, and organisations understand
-                    progress, demonstrate meaningful outcomes, and support the application of learning
-                    across home, school, and community settings.
+                    Development Beyond helps practitioners, families, and organisations measure progress, demonstrate the impact of their work, and support the application of learning across home, school, and community settings.
                 </p>
 
                 <!-- Buttons -->
                 <div class="flex flex-wrap gap-4 fade-in-up visible" style="animation-delay: 0.3s">
+                    <Link href="/who-we-support" class="btn-accent bg-white hover:bg-primary hover:text-white">
+                        Who Do We Support
+                    </Link>
                     <Link href="/contact" class="btn-accent">
                         Get Started
-                    </Link>
-                    <Link href="/who-we-support" class="btn-outline border-white text-white hover:bg-white hover:text-primary">
-                        Who Do We Support
                     </Link>
                 </div>
             </div>

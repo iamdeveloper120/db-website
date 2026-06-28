@@ -15,7 +15,7 @@ Route::get('/pricing', fn () =>  Inertia::render('Pricing'))->name('pricing');
 
 Route::get('/contact', fn () => Inertia::render('Contact'))->name('contact');
 
-Route::get('/contact-sales', fn () => Inertia::render('ContactSales'))->name('contact-sales');
+Route::redirect('/contact-sales', '/contact')->name('contact-sales');
 
 Route::get('/book-a-demo', fn () =>  Inertia::render('BookDemo'))->name('book-a-demo');
 

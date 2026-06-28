@@ -8,7 +8,7 @@ const steps = [
     {
         step: '02',
         title: 'Collect Information',
-        body: 'Collect information live during sessions using mobile devices. Supported methods include frequency, duration, trial-by-trial, task analysis, and evidence for learning journals.',
+        body: 'Collect information live during sessions using mobile devices. Supported methods include frequency, duration, trial-by-trial, task analysis, and evidence for learning.',
     },
     {
         step: '03',

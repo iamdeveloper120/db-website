@@ -55,7 +55,7 @@ const navItems = [
         label: 'Contact Us',
         href: '/contact',
         children: [
-            { label: 'Contact Sales', href: '/contact-sales' },
+            { label: 'Contact Sales', href: '/contact' },
             { label: 'Book a Demo',   href: '/book-a-demo' },
         ],
     },
@@ -91,14 +91,15 @@ const toggleMobileDropdown = (label) => {
         <div class="container mx-auto px-6 flex items-center justify-between">
 
             <!-- Logo -->
-            <Link href="/" class="flex items-center gap-3 shrink-0">
+            <Link href="/"  class="flex items-center gap-3 shrink-0">
                 <img
                     src="/assets/images/logo-transparent.png"
                     alt="Development Beyond"
-                    class="h-10 w-auto object-contain"
+                    class="h-12 w-12 object-contain shrink-0"
+                    style="background-color: white; border-radius: 1rem;"
                 />
                 <span
-                    class="font-heading font-bold text-sm leading-tight transition-colors duration-300"
+                    class="font-heading font-medium text-sm leading-tight transition-colors duration-300"
                     :class="scrolled ? 'text-primary' : 'text-white'"
                 >
                     Development<br>Beyond
@@ -154,8 +155,8 @@ const toggleMobileDropdown = (label) => {
 
             <!-- Book a Demo CTA -->
             <div class="hidden lg:block shrink-0">
-                <Link href="/book-a-demo" class="btn-primary text-sm">
-                    Book a Demo
+                <Link href="/book-a-demo" class="btn-accent text-sm">
+                    Book a Demo <i class="fa-solid fa-arrow-right ml-1.5 text-xs -rotate-45 inline-block" />
                 </Link>
             </div>
 

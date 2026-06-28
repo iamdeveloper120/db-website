@@ -14,7 +14,7 @@ import { Link } from '@inertiajs/vue3';
             </p>
             <div class="flex flex-wrap gap-4 justify-center fade-in-up">
                 <Link href="/book-a-demo" class="btn-primary">Book a Demo</Link>
-                <Link href="/contact-sales" class="btn-outline">Contact Sales</Link>
+                <Link href="/contact" class="btn-outline">Contact Sales</Link>
             </div>
         </div>
     </section>

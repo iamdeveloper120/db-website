@@ -98,8 +98,7 @@ const audiences = [
                         />
                     </div>
                     <div :class="i % 2 !== 0 ? 'lg:order-1' : ''">
-                        <div class="inline-flex items-center gap-3 bg-primary/10 px-4 py-2 rounded-full mb-6 fade-in-up">
-                            <i :class="[audience.icon, 'text-primary text-sm']" />
+                        <div class="inline-flex items-center bg-primary/10 px-4 py-2 rounded-full mb-6 fade-in-up">
                             <span class="text-primary font-semibold text-sm">{{ audience.title }}</span>
                         </div>
                         <h2 class="font-heading text-2xl md:text-3xl font-bold text-primary mb-4 leading-snug fade-in-up">
@@ -187,23 +186,6 @@ const audiences = [
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="py-24 bg-accent-light">
-            <div class="container mx-auto px-6 text-center">
-                <p class="section-tag fade-in-up">Get Started</p>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary max-w-3xl mx-auto leading-tight mt-2 mb-6 fade-in-up">
-                    Ready to see Development Beyond working for your setting?
-                </h2>
-                <p class="text-muted text-lg max-w-2xl mx-auto mb-10 fade-in-up">
-                    Book a demo and we'll show you exactly how Development Beyond supports your type of
-                    organisation, practice, or family.
-                </p>
-                <div class="flex flex-wrap gap-4 justify-center fade-in-up">
-                    <Link href="/book-a-demo" class="btn-primary">Book a Demo</Link>
-                    <Link href="/contact" class="btn-outline">Get in Touch</Link>
-                </div>
-            </div>
-        </section>
 
     </AppLayout>
 </template>

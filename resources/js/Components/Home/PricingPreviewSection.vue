@@ -60,7 +60,7 @@ const plans = [
                         Pricing details coming soon
                     </p>
                     <Link
-                        href="/contact-sales"
+                        href="/contact"
                         class="block text-center py-3 px-6 rounded-full font-semibold text-sm transition-all duration-300"
                         :class="plan.highlight
                             ? 'bg-accent text-primary hover:bg-accent-light'

@@ -66,10 +66,6 @@ const audiences = [
                     </div>
                 </div>
             </div>
-
-            <div class="text-center fade-in-up">
-                <Link href="/who-we-support" class="btn-primary">Learn Who We Support</Link>
-            </div>
         </div>
     </section>
 </template>

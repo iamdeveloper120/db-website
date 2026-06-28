@@ -6,8 +6,8 @@ const items = [
     { label: 'Progress Tracking',            href: '/approach' },
     { label: 'Data Analysis',                href: '/approach' },
     { label: 'Learning Repertoire Libraries',href: '/approach' },
-    { label: 'Learning Journal',             href: '/approach' },
-    { label: 'Meaningful Outcomes',          href: '/who-we-support' },
+    { label: 'Evidence for Learning',             href: '/approach' },
+    { label: 'Mand Dictionary',          href: '/who-we-support' },
     { label: 'Home / School / Community',    href: '/who-we-support' },
 ];
 </script>
